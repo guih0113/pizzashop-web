@@ -25,11 +25,11 @@ export function AccountMenu() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <Building className="mr-1 size-4" />
+          <Building className="size-4" />
           <span>Perfil da loja</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <LogOut className="mr-1 size-4 text-rose-500 dark:text-rose-400" />
+          <LogOut className="size-4 text-rose-500 dark:text-rose-400" />
           <span className='text-rose-500 dark:text-rose-400'>Sair</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

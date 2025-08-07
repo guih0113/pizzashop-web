@@ -33,7 +33,8 @@
         "useExhaustiveDependencies": "off"
       },
       "suspicious": {
-        "useAwait": "warn"
+        "useAwait": "warn",
+        "noArrayIndexKey": "off"
       },
       "style": {
         "useImportType": "off"

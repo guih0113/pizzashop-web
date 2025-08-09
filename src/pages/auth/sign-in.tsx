@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { toast } from 'sonner'
@@ -39,12 +38,10 @@ export function SignIn() {
 
   return (
     <>
-      <Helmet title="Login" />
+      <title>Login | pizza.shop</title>
       <div className="space-y-6 p-8">
-        <Button variant='ghost' asChild className="absolute top-8 right-8">
-          <Link to="/sign-up">
-            Novo estabelecimento
-          </Link>
+        <Button variant="ghost" asChild className="absolute top-8 right-8">
+          <Link to="/sign-up">Novo estabelecimento</Link>
         </Button>
         <div className="flex w-[350px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">

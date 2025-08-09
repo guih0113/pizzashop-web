@@ -1,5 +1,4 @@
 /** biome-ignore-all lint/a11y/useValidAnchor: <exception> */
-import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
@@ -43,7 +42,7 @@ export function SignUp() {
 
   return (
     <>
-      <Helmet title="Login" />
+      <title>Cadastro | pizza.shop</title>
       <div className="space-y-6 p-8">
         <Button variant="ghost" asChild className="absolute top-8 right-8">
           <Link to="/sign-in">Fazer login</Link>
@@ -81,7 +80,8 @@ export function SignUp() {
           </Button>
 
           <p className="w-[330px] px-6 text-center text-muted-foreground text-sm leading-relaxed">
-            Ao continuar, você concorda com nossos <a className="cursor-pointer underline underline-offset-3 hover:no-underline">Termos de Serviço</a> e{' '}
+            Ao continuar, você concorda com nossos{' '}
+            <a className="cursor-pointer underline underline-offset-3 hover:no-underline">Termos de Serviço</a> e{' '}
             <a className="cursor-pointer underline underline-offset-3 hover:no-underline">políticas de privacidade</a>.
           </p>
         </form>

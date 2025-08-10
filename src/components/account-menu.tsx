@@ -44,7 +44,11 @@ export function AccountMenu() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className="flex select-none items-center gap-2">
-            {isLoadingManagedRestaurant ? <Skeleton className="h-4 w-40" /> : managedRestaurant?.name}
+            {isLoadingManagedRestaurant ? (
+              <Skeleton className="h-4 w-40" />
+            ) : (
+              managedRestaurant?.name
+            )}
             <ChevronDown />
           </Button>
         </DropdownMenuTrigger>
@@ -70,7 +74,7 @@ export function AccountMenu() {
             </DropdownMenuItem>
           </DialogTrigger>
           <DropdownMenuItem asChild disabled={isSigningOut}>
-            <button type='button' className='w-full' onClick={() => signOutFn()}>
+            <button type="button" className="w-full" onClick={() => signOutFn()}>
               <LogOut className="size-4 text-rose-500 dark:text-rose-400" />
               <span className="text-rose-500 dark:text-rose-400">Sair</span>
             </button>

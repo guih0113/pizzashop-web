@@ -7,6 +7,11 @@ export type RegisterRestaurantBody = {
   phone: string
 }
 
-export async function registerRestaurant({ restaurantName, managerName, email, phone }: RegisterRestaurantBody) {
+export async function registerRestaurant({
+  restaurantName,
+  managerName,
+  email,
+  phone
+}: RegisterRestaurantBody) {
   await api.post('/restaurants', { restaurantName, managerName, email, phone })
 }

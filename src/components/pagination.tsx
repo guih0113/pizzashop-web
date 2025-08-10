@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react"
-import { Button } from "./ui/button"
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react'
+import { Button } from './ui/button'
 
 interface PaginationProps {
   pageIndex: number
@@ -12,26 +12,26 @@ export function Pagination({ pageIndex, totalCount, perPage }: PaginationProps) 
 
   return (
     <div className="flex items-center justify-between">
-      <span className="text-muted-foreground text-sm">
-        Total de {totalCount} item(s)
-      </span>
+      <span className="text-muted-foreground text-sm">Total de {totalCount} item(s)</span>
 
       <div className="flex items-center gap-6 lg:gap-8">
-        <div className="font-medium text-sm">Página {pageIndex + 1} de {pages}</div>
+        <div className="font-medium text-sm">
+          Página {pageIndex + 1} de {pages}
+        </div>
         <div className="flex items-center gap-2">
-          <Button variant='outline' className="size-8 p-0">
+          <Button variant="outline" className="size-8 p-0">
             <ChevronsLeft className="size-4" />
             <span className="sr-only">Primeira página</span>
           </Button>
-          <Button variant='outline' className="size-8 p-0">
+          <Button variant="outline" className="size-8 p-0">
             <ChevronLeft className="size-4" />
             <span className="sr-only">Próxima página</span>
           </Button>
-          <Button variant='outline' className="size-8 p-0">
+          <Button variant="outline" className="size-8 p-0">
             <ChevronRight className="size-4" />
             <span className="sr-only">Página anterior</span>
           </Button>
-          <Button variant='outline' className="size-8 p-0">
+          <Button variant="outline" className="size-8 p-0">
             <ChevronsRight className="size-4" />
             <span className="sr-only">Última página</span>
           </Button>

@@ -11,7 +11,8 @@ export default function MonthCanceledOrdersAmountCard() {
       <CardContent className="space-y-1">
         <span className="font-bold text-2xl tracking-tight">13</span>
         <p className="mt-2 text-muted-foreground text-sm">
-          <span className="text-emerald-500 dark:text-emerald-400">-7%</span> em relação ao mês passado
+          <span className="text-emerald-500 dark:text-emerald-400">-7%</span> em relação ao mês
+          passado
         </p>
       </CardContent>
     </Card>

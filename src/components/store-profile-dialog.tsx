@@ -6,7 +6,14 @@ import z from 'zod'
 import { type GetManageRestaurantResponse, getManageRestaurant } from '@/api/get-managed-restaurant'
 import { updateProfile } from '@/api/update-profile'
 import { Button } from './ui/button'
-import { DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog'
+import {
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from './ui/dialog'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
 import { Textarea } from './ui/textarea'
@@ -61,7 +68,7 @@ export function StoreProfileDialog() {
       return { previousProfile: cached }
     },
     onError(_, __, context) {
-      if(context?.previousProfile) {
+      if (context?.previousProfile) {
         updateManagedRestaurantCache(context.previousProfile)
       }
     }
@@ -84,7 +91,9 @@ export function StoreProfileDialog() {
     <DialogContent>
       <DialogHeader>
         <DialogTitle>Perfil da loja</DialogTitle>
-        <DialogDescription>Atualiza as informações do seu estabelecimento visíveis ao seu cliente</DialogDescription>
+        <DialogDescription>
+          Atualiza as informações do seu estabelecimento visíveis ao seu cliente
+        </DialogDescription>
       </DialogHeader>
 
       <form onSubmit={handleSubmit(handleUpdateProfile)}>

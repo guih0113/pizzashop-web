@@ -62,7 +62,9 @@ export function SignUp() {
         <div className="flex w-[350px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="font-semibold text-2xl tracking-tight">Acessar painel</h1>
-            <p className="text-muted-foreground text-sm">Acompanhe suas vendas pelo painel do parceiro!</p>
+            <p className="text-muted-foreground text-sm">
+              Acompanhe suas vendas pelo painel do parceiro!
+            </p>
           </div>
         </div>
 
@@ -93,8 +95,14 @@ export function SignUp() {
 
           <p className="w-[330px] px-6 text-center text-muted-foreground text-sm leading-relaxed">
             Ao continuar, você concorda com nossos{' '}
-            <a className="cursor-pointer underline underline-offset-3 hover:no-underline">Termos de Serviço</a> e{' '}
-            <a className="cursor-pointer underline underline-offset-3 hover:no-underline">políticas de privacidade</a>.
+            <a className="cursor-pointer underline underline-offset-3 hover:no-underline">
+              Termos de Serviço
+            </a>{' '}
+            e{' '}
+            <a className="cursor-pointer underline underline-offset-3 hover:no-underline">
+              políticas de privacidade
+            </a>
+            .
           </p>
         </form>
       </div>

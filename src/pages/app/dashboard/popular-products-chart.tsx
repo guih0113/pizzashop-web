@@ -11,7 +11,13 @@ const data = [
   { product: 'Margherita', amount: 1700 }
 ]
 
-const COLORS = [colors.sky[500], colors.violet[500], colors.amber[500], colors.emerald[500], colors.rose[500]]
+const COLORS = [
+  colors.sky[500],
+  colors.violet[500],
+  colors.amber[500],
+  colors.emerald[500],
+  colors.rose[500]
+]
 
 export function PopularProductsChart() {
   return (
@@ -63,7 +69,11 @@ export function PopularProductsChart() {
             >
               {data.map((_, index) => {
                 return (
-                  <Cell key={`cell-${index}`} fill={COLORS[index]} className="stroke-card hover:opacity-70" />
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index]}
+                    className="stroke-card hover:opacity-70"
+                  />
                 )
               })}
             </Pie>

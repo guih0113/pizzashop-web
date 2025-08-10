@@ -1,7 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, X } from "lucide-react";
+import { Search, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select'
 
 export function OrderTableFilters() {
   return (
@@ -23,12 +29,12 @@ export function OrderTableFilters() {
         </SelectContent>
       </Select>
 
-      <Button type="submit" variant='secondary' size='xs'>
+      <Button type="submit" variant="secondary" size="xs">
         <Search className="size-4" />
         Filtrar resultados
       </Button>
 
-      <Button type="button" variant='outline' size='xs'>
+      <Button type="button" variant="outline" size="xs">
         <X className="size-4" />
         Remover filtros
       </Button>

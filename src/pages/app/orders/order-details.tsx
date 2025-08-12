@@ -52,22 +52,22 @@ export function OrderDetails() {
           <TableHeader>
             <TableRow>
               <TableHead>Produto</TableHead>
-              <TableHead className="text-right">Qtd.</TableHead>
-              <TableHead className="text-right">Preço</TableHead>
+              <TableHead className="">Qtd.</TableHead>
+              <TableHead className="">Preço</TableHead>
               <TableHead className="text-right">Subtotal</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             <TableRow>
               <TableCell>Pizza de calabresa</TableCell>
-              <TableCell className="text-right">2</TableCell>
-              <TableCell className="text-right">R$ 59,90</TableCell>
+              <TableCell className="">2</TableCell>
+              <TableCell className="">R$ 59,90</TableCell>
               <TableCell className="text-right">R$ 119,80</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Pizza de frango</TableCell>
-              <TableCell className="text-right">1</TableCell>
-              <TableCell className="text-right">R$ 59,90</TableCell>
+              <TableCell className="">1</TableCell>
+              <TableCell className="">R$ 59,90</TableCell>
               <TableCell className="text-right">R$ 59,90</TableCell>
             </TableRow>
           </TableBody>

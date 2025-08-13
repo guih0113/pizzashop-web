@@ -28,7 +28,7 @@ export function OrderTableFilters() {
   const customerName = searchParams.get('customerName')
   const status = searchParams.get('status')
 
-  const { register, handleSubmit, control } = useForm<OrderFiltersSchema>({
+  const { register, handleSubmit, control, reset } = useForm<OrderFiltersSchema>({
     resolver: zodResolver(orderFiltersSchema),
     defaultValues: {
       orderId: orderId ?? '',
@@ -60,6 +60,23 @@ export function OrderTableFilters() {
       state.set('page', '1')
 
       return state
+    })
+  }
+
+  function handleClearFilters() {
+    setSearchParams((state) => {
+      state.delete('orderId')
+      state.delete('customerName')
+      state.delete('status')
+      state.set('page', '1')
+
+      return state
+    })
+
+    reset({
+      orderId: '',
+      customerName: '',
+      status: 'all'
     })
   }
 
@@ -106,7 +123,7 @@ export function OrderTableFilters() {
         Filtrar resultados
       </Button>
 
-      <Button type="button" variant="outline" size="xs">
+      <Button onClick={handleClearFilters} type="button" variant="outline" size="xs">
         <X className="size-4" />
         Remover filtros
       </Button>

@@ -25,9 +25,9 @@ export interface GetOrdersResponse {
 export async function GetOrders({ pageIndex, orderId, customerName, status }: GetOrdersQuery) {
   const response = await api.get<GetOrdersResponse>('/orders', {
     params: {
-      pageIndex, 
-      orderId, 
-      customerName, 
+      pageIndex,
+      orderId,
+      customerName,
       status
     }
   })

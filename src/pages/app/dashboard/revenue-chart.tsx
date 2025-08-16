@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query'
-import { subDays } from 'date-fns'
 import { Loader2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import type { DateRange } from 'react-day-picker'
@@ -12,8 +11,8 @@ import { Label } from '@/components/ui/label'
 
 export function RevenueChart() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
-    from: subDays(new Date(), 7),
-    to: new Date()
+    from: new Date(2025, 7, 1),
+    to: new Date(2025, 7, 8)
   })
 
   const { data: dailyRevenueInPeriod } = useQuery({
@@ -26,12 +25,14 @@ export function RevenueChart() {
   })
 
   const chartData = useMemo(() => {
-    return dailyRevenueInPeriod?.map((chartItem) => {
-      return {
-        date: chartItem.date,
-        receipt: chartItem.receipt / 100
-      }
-    }) ?? []
+    return (
+      dailyRevenueInPeriod?.map((chartItem) => {
+        return {
+          date: chartItem.date,
+          receipt: chartItem.receipt / 100
+        }
+      }) ?? []
+    )
   }, [dailyRevenueInPeriod])
 
   return (

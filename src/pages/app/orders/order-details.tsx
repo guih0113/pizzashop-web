@@ -13,6 +13,7 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table'
+import { OrderDetailsSkeleton } from './order-details-skeleton'
 
 export interface OrderDetailsProps {
   orderId: string
@@ -26,10 +27,6 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
     enabled: open
   })
 
-  if (!order) {
-    return null
-  }
-
   return (
     <DialogContent>
       <DialogHeader>
@@ -37,7 +34,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
         <DialogDescription>Detalhes do pedido</DialogDescription>
       </DialogHeader>
 
-      {order && (
+      {order ? (
         <div className="space-y-6">
           <Table>
             <TableBody>
@@ -75,8 +72,8 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
             <TableHeader>
               <TableRow>
                 <TableHead>Produto</TableHead>
-                <TableHead className="">Qtd.</TableHead>
-                <TableHead className="">Preço</TableHead>
+                <TableHead>Qtd.</TableHead>
+                <TableHead>Preço</TableHead>
                 <TableHead className="text-right">Subtotal</TableHead>
               </TableRow>
             </TableHeader>
@@ -85,8 +82,8 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                 return (
                   <TableRow key={item.id}>
                     <TableCell>{item.product.name}</TableCell>
-                    <TableCell className="">{item.quantity}</TableCell>
-                    <TableCell className="">
+                    <TableCell>{item.quantity}</TableCell>
+                    <TableCell>
                       {(item.priceInCents / 100).toLocaleString('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
@@ -115,6 +112,8 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
             </TableFooter>
           </Table>
         </div>
+      ) : (
+        <OrderDetailsSkeleton />
       )}
     </DialogContent>
   )

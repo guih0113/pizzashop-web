@@ -82,7 +82,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                 return (
                   <TableRow key={item.id}>
                     <TableCell>{item.product.name}</TableCell>
-                    <TableCell>{item.quantity}</TableCell>
+                    <TableCell className='text-center'>{item.quantity}</TableCell>
                     <TableCell>
                       {(item.priceInCents / 100).toLocaleString('pt-BR', {
                         style: 'currency',

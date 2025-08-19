@@ -14,7 +14,6 @@
       "@/*": [
         "./src/*"
       ]
-    },
-    "types": ["vitest/globals"]
+    }
   }
 }

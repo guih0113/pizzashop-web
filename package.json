@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "fix": "biome format --write ."
+    "biome:fix": "biome format --write ."
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

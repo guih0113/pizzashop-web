@@ -7,7 +7,6 @@
     "dev": "vite",
     "dev:test": "vite --port 50789 --mode test",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest"
   },

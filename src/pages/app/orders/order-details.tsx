@@ -50,7 +50,9 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
               </TableRow>
               <TableRow>
                 <TableCell className="text-muted-foreground">Telefone</TableCell>
-                <TableCell className="flex justify-end">{order.customer.phone ?? 'Não informado'}</TableCell>
+                <TableCell className="flex justify-end">
+                  {order.customer.phone ?? 'Não informado'}
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell className="text-muted-foreground">E-mail</TableCell>
@@ -82,7 +84,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                 return (
                   <TableRow key={item.id}>
                     <TableCell>{item.product.name}</TableCell>
-                    <TableCell className='text-center'>{item.quantity}</TableCell>
+                    <TableCell className="text-center">{item.quantity}</TableCell>
                     <TableCell>
                       {(item.priceInCents / 100).toLocaleString('pt-BR', {
                         style: 'currency',
@@ -90,7 +92,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
                       })}
                     </TableCell>
                     <TableCell className="text-right">
-                      {(item.priceInCents * item.quantity / 100).toLocaleString('pt-BR', {
+                      {((item.priceInCents * item.quantity) / 100).toLocaleString('pt-BR', {
                         style: 'currency',
                         currency: 'BRL'
                       })}

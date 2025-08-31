@@ -9,7 +9,7 @@ export const getOrderDetailsMock = http.get<GetOrderDetailsParams, never, GetOrd
       customer: {
         name: 'Test Name',
         email: 'teste@example.com',
-        phone: '233423435',
+        phone: '233423435'
       },
       status: 'pending',
       createdAt: new Date().toISOString(),

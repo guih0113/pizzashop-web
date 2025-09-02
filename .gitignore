@@ -25,3 +25,9 @@ dist-ssr
 
 # Biome
 biome.json
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

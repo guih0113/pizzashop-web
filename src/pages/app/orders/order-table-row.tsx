@@ -111,6 +111,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
             disabled={isApprovingOrder}
             variant="outline"
             size="xs"
+            className='gap-1'
           >
             <ArrowRight className="h-3 w-3" />
             Aprovar
@@ -122,6 +123,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
             disabled={isDispatchingOrder}
             variant="outline"
             size="xs"
+            className='gap-1'
           >
             <ArrowRight className="h-3 w-3" />
             Em entrega
@@ -133,6 +135,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
             disabled={isDeliveringOrder}
             variant="outline"
             size="xs"
+            className='gap-1'
           >
             <ArrowRight className="h-3 w-3" />
             Entregue
@@ -145,6 +148,7 @@ export function OrderTableRow({ order }: OrderTableRowProps) {
           onClick={() => cancelOrderFn({ orderId: order.orderId })}
           variant="ghost"
           size="xs"
+          className='gap-1'
         >
           <X className="h-3 w-3" />
           Cancelar

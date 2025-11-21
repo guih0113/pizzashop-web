@@ -1,8 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { enableMSW } from './api/mocks/index.ts'
-import App from './app.tsx'
+import { enableMSW } from './api/mocks'
+import App from './app'
 
 enableMSW().then(() => {
   // biome-ignore lint/style/noNonNullAssertion: <>

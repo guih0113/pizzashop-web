@@ -4,9 +4,6 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
@@ -67,3 +64,22 @@ export default tseslint.config([
   },
 ])
 ```
+
+## Deploy na Vercel
+
+- Recomendado: fazer o build em modo `test` (já inclui os mocks do MSW quando a aplicação for construída em `mode=test`) e publicar a pasta `dist`.
+- O repositório já inclui um `vercel.json` que instrui a Vercel a usar `dist` como saída.
+
+Scripts úteis:
+
+- `npm run dev:test`: roda o Vite em `mode=test` para desenvolvimento local (porta `50789`).
+- `npm run build:test` (adicionado): compila com `mode=test` — a Vercel irá executar este comando automaticamente (`vercel-build`).
+
+Para configurar no painel da Vercel, use estas opções (opcional se usar `vercel.json`):
+
+- Build Command: `npm run build:test`
+- Output Directory: `dist`
+
+Observação importante:
+
+- A Vercel não é feita para executar um servidor de desenvolvimento (processos long-running como `vite` em modo dev). Por isso configuramos a build para gerar os arquivos estáticos (`dist`) e a Vercel servirá esses arquivos — dessa forma sua aplicação continua usando os mocks em `mode=test` sem publicar a API real.

@@ -1,85 +1,93 @@
-# React + TypeScript + Vite
+# PizzaShop — Admin Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um frontend administrativo em Vite + React + TypeScript para gerenciar uma pizzaria.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- UI de gerenciamento para pedidos, relatórios de faturamento e perfis
+- API Mockada para desenvolvimento local usando MSW (`mode=test`)
+- Páginas com React Router e componentes de UI reutilizáveis
+- Gráficos e relatórios com seleção de período
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Stack Tecnológica
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Frameworks: React, Vite, TypeScript
+- Estado e dados: @tanstack/react-query, axios
+- UI: Tailwind CSS, Radix primitives, lucide-react
+- Testes: Vitest, @testing-library/react, MSW
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Início Rápido
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Requisitos: Node 18+ (ou compatível), pnpm ou npm.
+
+Instale as dependências:
+
+```bash
+pnpm install
+# ou
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Execute o servidor de desenvolvimento:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
+# ou
+pnpm dev
 ```
 
-## Deploy na Vercel
+Execute o servidor de desenvolvimento com mocks (recomendado para desenvolvimento):
 
-- Recomendado: fazer o build em modo `test` (já inclui os mocks do MSW quando a aplicação for construída em `mode=test`) e publicar a pasta `dist`.
-- O repositório já inclui um `vercel.json` que instrui a Vercel a usar `dist` como saída.
+```bash
+npm run dev:test
+```
 
-Scripts úteis:
+## Build
 
-- `npm run dev:test`: roda o Vite em `mode=test` para desenvolvimento local (porta `50789`).
-- `npm run build:test` (adicionado): compila com `mode=test` — a Vercel irá executar este comando automaticamente (`vercel-build`).
+```bash
+npm run build
+# build com modo de teste (inclui o worker do MSW):
+npm run build:test
+```
 
-Para configurar no painel da Vercel, use estas opções (opcional se usar `vercel.json`):
+Pré-visualize a build de produção:
 
-- Build Command: `npm run build:test`
-- Output Directory: `dist`
+```bash
+npm run preview
+```
 
-Observação importante:
+## Scripts (do package.json)
 
-- A Vercel não é feita para executar um servidor de desenvolvimento (processos long-running como `vite` em modo dev). Por isso configuramos a build para gerar os arquivos estáticos (`dist`) e a Vercel servirá esses arquivos — dessa forma sua aplicação continua usando os mocks em `mode=test` sem publicar a API real.
+- `dev` — inicia o servidor de desenvolvimento Vite
+- `dev:test` — inicia o Vite em `mode=test` (usa MSW na porta 50789 por padrão)
+- `build` — build do TypeScript + build do Vite
+- `build:test` — build com `mode=test` (útil para deploy que precisa de mocks)
+- `vercel-build` — hook de build da Vercel (executa `vite build --mode test`)
+- `preview` — pré-visualiza a build de produção
+- `test` — executa os testes unitários com Vitest
+- `biome:fix` — formata com o Biome
+
+## Notas de Desenvolvimento
+
+- **MSW**: O projeto inclui um script de mock service worker em `public/mockServiceWorker.js` e handlers de mock em `src/api/mocks`. Use `mode=test` para habilitar os mocks tanto em desenvolvimento quanto na build.
+- **API**: Helpers de requisição e endpoints estão em `src/api`. Componentes de UI e páginas estão em `src/components` e `src/pages`.
+
+## Estrutura do Repositório (alto nível)
+
+- `src/`
+  - `api/` — Endpoints da API e mocks
+  - `components/` — Componentes compartilhados e primitivas de UI
+  - `lib/` — Configuração do axios, react-query e utilitários
+  - `pages/` — Páginas de rota e layouts
+  - `main.tsx` / `App.tsx` — Entrada da aplicação
+- `public/` — Arquivos estáticos (contém o worker do MSW)
+- `test/` — Configuração dos testes
+
+## Testes
+
+- Execute os testes unitários com `npm run test`.
+- Os testes de componentes usam `@testing-library/react` e `vitest`.
+
+## Deploy
+
+- Este aplicativo está configurado para gerar assets estáticos. Para a Vercel, o `vercel.json` está incluído e o `vercel-build` executa `vite build --mode test` para que os mocks permaneçam disponíveis na saída da build.
